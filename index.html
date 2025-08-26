@@ -17,6 +17,9 @@
     .reviews { background: #dfe6e9; padding: 20px; border-radius: 10px; }
     .reviews p { font-style: italic; }
     footer { background: #4a2c2a; color: white; text-align: center; padding: 15px; margin-top: 20px; }
+    .countdown { font-size: 20px; font-weight: bold; color: red; margin-top: 10px; }
+    .pay-btn { display: inline-block; padding: 12px 20px; margin-top: 15px; background: #27ae60; color: white; text-decoration: none; border-radius: 5px; font-size: 18px; }
+    .pay-btn:hover { background: #2ecc71; }
   </style>
 </head>
 <body>
@@ -66,6 +69,8 @@
   <p><b>INR 999 only (Limited Time Offer)</b></p>
   <p>UPI ID: <b>sameershahiiict2023-2@okicici</b></p>
   <p>Mobile: <b>9305680015</b></p>
+  <p><a class="pay-btn" href="upi://pay?pa=sameershahiiict2023-2@okicici&pn=SameerShahi&am=999&cu=INR">Pay Now with UPI</a></p>
+  <div class="countdown" id="countdown"></div>
   <p>After payment, share screenshot to WhatsApp. You will be added to the group and classes will start from Day 1.</p>
   <p><b>Classes already started (2 days ago) – Don’t miss opportunity!</b></p>
 </section>
@@ -79,6 +84,28 @@
 <footer>
   <p>&copy; 2025 Tathastu-Path | All Rights Reserved</p>
 </footer>
+
+<script>
+// Countdown Timer Script
+var countDownDate = new Date("2025-08-29T10:52:04").getTime();
+var x = setInterval(function() {
+  var now = new Date().getTime();
+  var distance = countDownDate - now;
+
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  document.getElementById("countdown").innerHTML =
+    "Offer Ends in: " + days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("countdown").innerHTML = "Offer Expired - Price Rising Soon!";
+  }
+}, 1000);
+</script>
 
 </body>
 </html>
